@@ -1,0 +1,32 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Room {
+  id        String   @id @default(uuid())
+  name      String   @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  strokes   Stroke[]
+
+  @@map("rooms")
+}
+
+model Stroke {
+  id        Int      @id @default(autoincrement())
+  roomId    String   @map("room_id")
+  tool      String   @db.VarChar(50)
+  color     String   @db.VarChar(10)
+  lineWidth Int      @map("line_width")
+  points    Json
+  createdAt DateTime @default(now()) @map("created_at")
+
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@index([roomId], map: "idx_strokes_room_id")
+  @@map("strokes")
+}

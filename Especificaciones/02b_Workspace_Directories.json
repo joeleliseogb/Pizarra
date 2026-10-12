@@ -1,0 +1,41 @@
+{
+  "name": "pizarra-interactiva",
+  "type": "folder",
+  "children": [
+    {
+      "name": "backend",
+      "type": "folder",
+      "children": [
+        { "name": "package.json", "type": "file", "description": "Configuración de dependencias de Node.js y scripts." },
+        { "name": "server.js", "type": "file", "description": "Punto de entrada principal con Express y Socket.IO." },
+        { "name": "prisma", "type": "folder", "description": "Archivos del ORM Prisma para la base de datos." }
+      ]
+    },
+    {
+      "name": "frontend",
+      "type": "folder",
+      "children": [
+        { "name": "package.json", "type": "file", "description": "Dependencias de React + Vite." },
+        { "name": "index.html", "type": "file", "description": "HTML principal." },
+        {
+          "name": "src",
+          "type": "folder",
+          "children": [
+            { "name": "main.jsx", "type": "file", "description": "Punto de inicialización de React." },
+            { "name": "App.jsx", "type": "file", "description": "Componente raíz de la aplicación." },
+            { "name": "index.css", "type": "file", "description": "Estilos globales CSS." },
+            {
+              "name": "components",
+              "type": "folder",
+              "children": [
+                { "name": "Canvas.jsx", "type": "file", "description": "Lienzo interactivo de dibujo con PointerEvents." },
+                { "name": "RadialMenu.jsx", "type": "file", "description": "Menú radial contextual flotante." },
+                { "name": "Toolbar.jsx", "type": "file", "description": "Panel de control general superior." }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
